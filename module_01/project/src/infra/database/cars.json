@@ -1,0 +1,23 @@
+[
+  {
+    "id": "622c787d-517f-576c-9de3-b8dae5dedefb",
+    "name": "ciseji",
+    "releaseYear": "2001",
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "facf327a-6016-5752-a84c-ba46ada4a86c",
+    "name": "wiggemhe",
+    "releaseYear": "2000",
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "1e32cfb2-7e5d-5321-b328-42cac9609e82",
+    "name": "wipuz",
+    "releaseYear": "2007",
+    "available": true,
+    "gasAvailable": true
+  }
+]
