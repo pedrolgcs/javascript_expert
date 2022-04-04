@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed": "node ./src/infra/database/seed"
+    "seed": "node ./src/infra/database/seed",
+    "test": "npx mocha --parallel ./__tests__/**/*.test.js",
+    "test:watch": "npx mocha -w --parallel ./__tests__/**/*.test.js",
+    "test:cov": "npx nyc npx mocha --parallel ./__tests__/**/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "chance": "^1.1.8"
+    "chai": "^4.3.6",
+    "chance": "^1.1.8",
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.4"
   }
 }
