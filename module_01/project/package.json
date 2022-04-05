@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:server": "npx nodemon ./src/infra/http/server.js",
     "seed": "node ./src/infra/database/seed",
     "test": "npx mocha --parallel ./__tests__/**/*.test.js",
     "test:watch": "npx mocha -w --parallel ./__tests__/**/*.test.js",
@@ -16,7 +17,9 @@
     "chai": "^4.3.6",
     "chance": "^1.1.8",
     "mocha": "^8.4.0",
+    "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
-    "sinon": "^9.2.4"
+    "sinon": "^9.2.4",
+    "supertest": "^6.2.2"
   }
 }
