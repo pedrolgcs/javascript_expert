@@ -7,8 +7,6 @@ const handler = function (request, response) {
   console.log(routerKey);
   const chosenRoute = routes[routerKey] || routes.default;
 
-  // default header
-  response.writeHead(200, { 'Content-Type': 'text/html' });
   return chosenRoute(request, response);
 };
 

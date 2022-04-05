@@ -24,9 +24,8 @@ const routes = {
   },
 
   default: (_, response) => {
-    response.write('page not found');
-    response.writeHead(404);
-    return response.end();
+    response.writeHead(404, { 'Content-Type': 'application/json' });
+    return response.end(JSON.stringify({ error: 'page not found' }));
   },
 };
 

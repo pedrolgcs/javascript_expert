@@ -12,6 +12,19 @@ const MOCKS = {
 };
 
 describe('Api suit test', () => {
+  describe('/nonexistent', () => {
+    it('should be able to return a 404 status code in non existing route', async () => {
+      const expectedStatusCode = 404;
+      const expectedBody = {
+        error: 'page not found',
+      };
+
+      const sut = await supertest(app).get('/nonexistent');
+      expect(sut.status).to.be.equal(expectedStatusCode);
+      expect(sut.body).to.be.deep.equal(expectedBody);
+    });
+  });
+
   describe('/car/rent', () => {
     let sandbox = {};
 
