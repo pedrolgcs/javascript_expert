@@ -41,3 +41,32 @@ async function* systemInfo() {
     console.log(item);
   }
 })();
+
+// ------------------------------------------------
+(() => {
+  function* fibonacci(number) {
+    let a = 0,
+      b = 1,
+      current;
+
+    while (number > 0) {
+      current = a;
+
+      yield current;
+
+      a = b;
+      b = current + b;
+      number--;
+    }
+  }
+
+  assert.deepStrictEqual([...fibonacci(10)], [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]);
+
+  /*
+  const sequence = fibonacci(10);
+
+  for (let i = 0; i < 10; i++) {
+    console.log(sequence.next().value);
+  }
+  */
+})();
