@@ -1,0 +1,29 @@
+regex101.com
+^\d{3}.\d{3}.\d{3}-\d{2}$
+
+replace [.-] - vazio
+
+102.519.624-65
+132.219.029-44
+112.919.635-33
+132.119.324-20
+142.219.204-30
+162.319.124-10
+
+// ---------------------------------------------------------------
+
+replace ^(\w+),\s(\w+)$ - {fistName:  "$2", lastName: "$1"}
+
+Wendel, Erick
+Gomes, Laila
+Johnson, Jose
+
+// ---------------------------------------------------------------
+
+replace \[(.*?)\]\(([http|https].*?)\) - <a href="https://erickwendel.com">Erick Wendel<a/>
+
+0 [Erick Wendel](https://erickwendel.com) faz palestras e 
+você devia segui-lo lá no [Twitter](https://twitter.com/erickwendel) ou 
+até no <a href="https://instagram.com/erickwendel">Instagram<a/>
+
+Ha e pode pesquisar no [Google](https://google.com)
