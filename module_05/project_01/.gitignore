@@ -1,0 +1,6 @@
+node_modules
+
+# tests
+.nyc_output
+.reify-cache
+coverage
