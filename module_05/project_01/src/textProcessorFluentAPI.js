@@ -1,3 +1,5 @@
+const { evaluateRegex } = require('./util');
+
 class TextProcessorFluentAPI {
   #content;
 
@@ -16,12 +18,31 @@ class TextProcessorFluentAPI {
       .*\n vai pegar tudo até a quebra de linha
       .*? faz com que pare na primeira recorrência
     */
-    const matchPerson =
-      /(?<=[contratante|contratada]:\s{1})(?!\s)(.*\n.*?)$/gim;
+    const matchPerson = evaluateRegex(
+      /(?<=[contratante|contratada]:\s{1})(?!\s)(.*\n.*?)$/gim
+    );
 
     const onlyPersons = this.#content.match(matchPerson);
 
     this.#content = onlyPersons;
+
+    return this;
+  }
+
+  divideTextInColumns() {
+    const splitRegex = evaluateRegex(/,/);
+
+    this.#content = this.#content.map((line) => line.split(splitRegex));
+
+    return this;
+  }
+
+  removeEmptyCharacters() {
+    const regexEmptyCharacters = evaluateRegex(/^\s+|\s+$|\n/gm);
+
+    this.#content = this.#content.map((line) =>
+      line.map((item) => item.replace(regexEmptyCharacters, ''))
+    );
 
     return this;
   }

@@ -32,4 +32,66 @@ describe('TextProcessorFluentAPI', () => {
 
     expect(sut).to.be.deep.equal(expected);
   });
+
+  it('#divideTextInColumns', () => {
+    const content = [
+      [
+        'Pedro Henrique, brasileiro, casado, CPF 102.519.624-40, residente e domiciliada',
+        'a Rua dos bobos, zero, bairro Alphaville, São Paulo.',
+      ].join('\n'),
+    ];
+
+    const sut = new TextProcessorFluentAPI(content)
+      .divideTextInColumns()
+      .build();
+
+    const expected = [
+      [
+        'Pedro Henrique',
+        ' brasileiro',
+        ' casado',
+        ' CPF 102.519.624-40',
+        ' residente e domiciliada\na Rua dos bobos',
+        ' zero',
+        ' bairro Alphaville',
+        ' São Paulo.',
+      ],
+    ];
+
+    expect(sut).to.be.deep.equal(expected);
+  });
+
+  it('#removeEmptyCharacters', () => {
+    const content = [
+      [
+        'Pedro Henrique',
+        ' brasileiro',
+        ' casado',
+        ' CPF 102.519.624-40',
+        ' residente e domiciliada\na Rua dos bobos',
+        ' zero',
+        ' bairro Alphaville',
+        ' São Paulo.',
+      ],
+    ];
+
+    const sut = new TextProcessorFluentAPI(content)
+      .removeEmptyCharacters()
+      .build();
+
+    const expected = [
+      [
+        'Pedro Henrique',
+        'brasileiro',
+        'casado',
+        'CPF 102.519.624-40',
+        'residente e domiciliadaa Rua dos bobos',
+        'zero',
+        'bairro Alphaville',
+        'São Paulo.',
+      ],
+    ];
+
+    expect(sut).to.be.deep.equal(expected);
+  });
 });
