@@ -1,0 +1,26 @@
+{
+  "name": "project_01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon --exec node --experimental-json-modules --experimental-top-level-await src/index.js",
+    "pdf:text": "node src/index.js | tee assets/text.txt",
+    "test": "npx mocha --parallel ./__tests__/**/*.test.js",
+    "test:watch": "npx mocha -w --parallel ./__tests__/**/*.test.js",
+    "test:cov": "npx nyc npx mocha --parallel ./__tests__/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.16",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "safe-regex": "^2.1.1"
+  }
+}
