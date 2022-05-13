@@ -1,4 +1,4 @@
-import { database } from '../shared/database/db.mjs';
+import { database } from './shared/database/db.mjs';
 
 class Application {
   constructor(factory) {
@@ -15,7 +15,7 @@ class Application {
 
   // dynamic import
   const { default: ViewFactory } = await import(
-    `../platforms/${path}/index.mjs`
+    `./platforms/${path}/index.mjs`
   );
 
   const app = new Application(new ViewFactory());

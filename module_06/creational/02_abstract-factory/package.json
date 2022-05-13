@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "server": "node src/ui/index.mjs",
+    "server": "node ./src/index.mjs",
     "web": "npx http-server -c-1 ."
   },
   "keywords": [],
